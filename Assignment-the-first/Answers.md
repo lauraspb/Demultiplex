@@ -52,11 +52,14 @@ High level functions
 
 Def revcomp(index):
 ‘’’Takes index, writes complementary strand to it, and then reverses it to get it in 5’ - 3’ direction. Returns the output reverse complement of index.'''
+Return statement: Reverse complement string of index
 Example input: ACTG
 Output: CAGT
 
 Def reportnum(file, category):
 ‘’’Takes output file and counts the number of read-pairs included in that file’s category. Categories include: “match”, “swap”, “unknown” if the category is swap, function will also return number of unique index combinations.’’’
+Return statement: String with number of indexes of chosen category in FASTQ file
+
 Example input: FASTQ file with 5 properly matched indexes, “match”
 Output: “5 matched indexes in FASTQ file”
 Example input: FASTQ file with 3 swapped indexes (2 same, 1 unique), “swap”
