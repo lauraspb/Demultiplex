@@ -29,7 +29,40 @@
 4. ```There will be 2 files for every category, one from read 1 and one from read 2. Each index will be on category (24 indexes), and there will be a category for swapped indexes and one for low quality indexes.```
 5. Upload your [4 input FASTQ files](../TEST-input_FASTQ) and your [>=6 expected output FASTQ files](../TEST-output_FASTQ).
 6. Pseudocode
-7. High level functions. For each function, be sure to include:
+```
+Loop through 4 files
+	Make 4 lists for each record (one per file)
+If N is in the index OR index not in index-list
+	Append index to header
+	Put in low quality output file
+Revcomp function
+
+If indexes are the same
+	Append index to header
+	Put in index file
+Else
+	Append index to header
+	Put in swap file
+
+Reportnum function
+
+
+High level functions
+
+Def revcomp(index):
+‘’’Takes index, writes complementary strand to it, and then reverses it to get it in 5’ - 3’ direction. Returns the output reverse complement of index.'''
+Example input: ACTG
+Output: CAGT
+
+Def reportnum(file, category):
+‘’’Takes output file and counts the number of read-pairs included in that file’s category. Categories include: “match”, “swap”, “unknown” if the category is swap, function will also return number of unique index combinations.’’’
+Example input: FASTQ file with 5 properly matched indexes, “match”
+Output: “5 matched indexes in FASTQ file”
+Example input: FASTQ file with 3 swapped indexes (2 same, 1 unique), “swap”
+Output: “3 swapped indexes, 2 AAA CCC, 1 AAA TTT”
+
+```
+8. High level functions. For each function, be sure to include:
     1. Description/doc string
     2. Function headers (name and parameters)
     3. Test examples for individual functions
